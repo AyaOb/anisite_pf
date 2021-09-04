@@ -1,24 +1,43 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# おすすめアニメ投稿サイト
 
-Things you may want to cover:
+## サイト概要
+・アニメ紹介サイト
 
-* Ruby version
+### サイトテーマ
+・おすすめのアニメを紹介したり、
+　感想などを共有しながら好きなアニメについて語り合い、交流できるサイト
 
-* System dependencies
+### テーマを選んだ理由
+・アニメが好きなので、
+　様々な投稿サイトやSNSサービスがある中で、
+　好きなアニメを語ったり、紹介するアニメ専用のサイトにしようと考えた
 
-* Configuration
+### ターゲットユーザ
+・アニメを見る一般ユーザー
 
-* Database creation
+### 主な利用シーン
+・おすすめのアニメを紹介できる
+・好きなアニメについて他人と共有できる
+・新しいアニメを知ることができる
 
-* Database initialization
+## 設計書
+・機能一覧
+・データベース設計書（ER図、テーブル定義書）
+・画面設計書
+・アプリケーション詳細設計書
 
-* How to run the test suite
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1BPCTBxC7R_vSoxJQwrTfkYHGnTLGFDlzse7reZ6V6c8/edit#gid=0
 
-* Services (job queues, cache servers, search engines, etc.)
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
