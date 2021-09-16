@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
       # 管理者ログイン後
     else
       # ユーザログイン後
-      users_mypage_path
+      user_mypage_path
     end
   end
 

@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   scope module: :public do
-    get 'users/mypage' => 'users#show'
-    get 'users/edit' => 'users#edit'
-    get 'users/confirm' => 'users#confirm'
-    patch 'users/update' => 'users#update'
-    patch 'users/quit' => 'users#quit'
+    get 'user/mypage' => 'users#show'
+    get 'user/edit' => 'users#edit'
+    get 'user/confirm' => 'users#confirm'
+    patch 'user/update' => 'users#update'
+    patch 'user/quit' => 'users#quit'
   end
 
   devise_for :user, :skip => [:password], controllers: {
