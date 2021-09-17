@@ -1,2 +1,6 @@
-<h1>Users#confirm</h1>
-<p>Find me in app/views/users/confirm.html.erb</p>
+<h3>退会確認</h3>
+
+<div>本当に退会しますか？退会すると投稿やコメントができなくなります。</div>
+
+<%= link_to "退会する", user_quit_path, method: :patch %>
+<%= link_to "退会しない", user_edit_path %>

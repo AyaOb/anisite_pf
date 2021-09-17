@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     if admin_signed_in?
       # 管理者ログイン後
     else
-      # ユーザログイン後
+      # ユーザログイン後,マイページへ遷移
       user_mypage_path
     end
   end
@@ -14,8 +14,8 @@ class ApplicationController < ActionController::Base
       # 管理者ログアウト後,ログイン画面へ遷移
       new_admin_session_path
     else
-      # root_path
-      new_user_session_path
+      # ユーザログアウト後,トップページへ遷移
+      root_path
     end
   end
 end

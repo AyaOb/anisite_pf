@@ -17,6 +17,11 @@ class Public::UsersController < ApplicationController
   end
 
   def quit
+    @user = current_user
+    @user.update(is_active: false)
+    # ログアウト
+    reset_session
+    redirect_to root_path
   end
 
   private
