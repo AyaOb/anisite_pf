@@ -1,0 +1,16 @@
+<div>
+  <%= f.label :name, "アニメタイトル" %><br />
+  <%= f.text_field :name, autofocus: true %>
+</div>
+<div>
+  <%= f.label :image, "アニメ画像" %><br />
+  <%= f.attachment_field :image %>
+</div>
+<div>
+  <%= f.label :introduction, "あらすじ" %><br />
+  <%= f.text_area :introduction %>
+</div>
+<div>
+  <%= f.label :genre, "ジャンル" %><br />
+  <%= f.select :genre, options_from_collection_for_select(Genre.all, :id, :name), {include_blank: "--選択してください--"} %>
+</div>

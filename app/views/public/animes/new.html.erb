@@ -1,2 +1,7 @@
-<h1>Animes#new</h1>
-<p>Find me in app/views/animes/new.html.erb</p>
+<h3>新規アニメ投稿</h3>
+<%= form_with model:@anime, url:new_anime_path, local:true do |f| %>
+  <%= render 'public/shared/anime', f: f %>
+  <div>
+    <%= f.submit "投稿する" %>
+  </div>
+<% end %>
