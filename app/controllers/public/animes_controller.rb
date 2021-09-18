@@ -1,4 +1,6 @@
 class Public::AnimesController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
+
   def index
   end
 
@@ -7,9 +9,9 @@ class Public::AnimesController < ApplicationController
   end
 
   def create
-    @anime = Anime.new(anime_params)
+    @anime = current_user.animes.new(anime_params)
     @anime.save
-    redirect_to anime_path
+    redirect_to anime_path(@anime)
   end
 
   def show

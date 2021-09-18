@@ -11,6 +11,6 @@
   <%= f.text_area :introduction %>
 </div>
 <div>
-  <%= f.label :genre, "ジャンル" %><br />
-  <%= f.select :genre, options_from_collection_for_select(Genre.all, :id, :name), {include_blank: "--選択してください--"} %>
+  <%= f.label :genre_id, "ジャンル" %><br />
+  <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name), {include_blank: "--選択してください--"} %>
 </div>
