@@ -1,2 +1,11 @@
-<h1>Animes#index</h1>
-<p>Find me in app/views/animes/index.html.erb</p>
+<h3>投稿したアニメ一覧</h3>
+<%= current_user.email %>
+<div>
+  <% @anime_list.each do |anime| %>
+    <%= link_to anime_path(anime.id) do %>
+      <div><%= attachment_image_tag anime, :image, :fill, 200, 100 %></div>
+      <div><%= anime.name %></div>
+      <div><%= anime.introduction %></div>
+    <% end %>
+  <% end %>
+</div>

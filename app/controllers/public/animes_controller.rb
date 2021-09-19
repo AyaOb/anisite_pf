@@ -2,6 +2,7 @@ class Public::AnimesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   def index
+    @anime_list = current_user.animes
   end
 
   def new
