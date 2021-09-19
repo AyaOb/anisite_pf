@@ -17,6 +17,7 @@ class Public::AnimesController < ApplicationController
 
   def show
     @anime = Anime.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit

@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     get 'user/confirm' => 'users#confirm'
     patch 'user/update' => 'users#update'
     patch 'user/quit' => 'users#quit'
-    resources :animes, only: [:index, :new, :create, :show, :edit, :update]
+    resources :animes, only: [:index, :new, :create, :show, :edit, :update] do
+      resources :comments, only: [:create, :destroy]
+    end
   end
 
   devise_for :user, :skip => [:password], controllers: {
