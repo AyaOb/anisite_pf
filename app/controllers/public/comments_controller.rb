@@ -1,4 +1,6 @@
 class Public::CommentsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     anime = Anime.find(params[:anime_id])
     comment = current_user.comments.new(comment_params)
