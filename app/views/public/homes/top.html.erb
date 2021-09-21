@@ -1,1 +1,9 @@
 <h3>トップページ</h3>
+<div>
+  <% @anime_list.each do |anime| %>
+    <%= link_to anime_path(anime.id) do %>
+      <div><%= attachment_image_tag anime, :image, :fill, 200, 100 %></div>
+      <div><%= anime.name %></div>
+    <% end %>
+  <% end %>
+</div>
