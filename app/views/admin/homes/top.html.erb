@@ -1,1 +1,32 @@
 <h3>管理者トップページ(アニメ一覧)</h3>
+<div>
+  <% @anime_list.each do |anime| %>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <%= link_to anime_path(anime.id) do %>
+              <%= attachment_image_tag anime, :image, :fill, 200, 100 %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to anime.name, anime_path(anime.id) %>(<%= link_to anime.user.name %>)<br />
+            更新日:<%= anime.updated_at.strftime('%Y/%m/%d %H:%M:%S') %>
+            <% if anime.is_active %>
+              <div>表示</div>
+            <% else %>
+              <div>非表示</div>
+            <% end %>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+</div>
