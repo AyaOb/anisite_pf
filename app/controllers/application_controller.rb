@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resourse)
     if admin_signed_in?
       # 管理者ログイン後
+      admin_path
     else
       # ユーザログイン後,マイページへ遷移
       user_mypage_path
