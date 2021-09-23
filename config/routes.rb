@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get '/' => 'homes#top'
     resources :genres, only: [:index, :create, :edit, :update]
     resources :animes, only: [:show, :edit, :update]
+    resources :users, only: [:index, :show, :edit, :update]
   end
 
   devise_for :admin, :skip => [:password, :registrations], controllers: {
