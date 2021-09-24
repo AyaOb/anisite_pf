@@ -27,7 +27,7 @@ class Public::AnimesController < ApplicationController
   def update
     @anime = Anime.find(params[:id])
     @anime.update(anime_params)
-    redirect_to anime_path
+    redirect_to anime_path(@anime.id)
   end
 
   private
