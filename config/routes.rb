@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
+    get 'animes/search' => 'homes#search'
     get 'about' => 'homes#about'
     get 'user/mypage' => 'users#show'
     get 'user/edit' => 'users#edit'

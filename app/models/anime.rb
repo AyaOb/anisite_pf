@@ -5,4 +5,7 @@ class Anime < ApplicationRecord
 
   attachment :image
 
+  def self.search(keyword)
+    where(["name like? OR introduction like?", "%#{keyword}%", "%#{keyword}%"])
+  end
 end
