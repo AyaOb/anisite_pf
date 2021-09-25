@@ -10,41 +10,52 @@
   </head>
 
   <body>
-    <header>
-      <ul>
-        <li>
-          <%= link_to "初めての方へ", about_path %>
-        </li>
-        <% if admin_signed_in? %>
-          <li>
-            <%= link_to "アニメ一覧", admin_path %>
-          </li>
-          <li>
-            <%= link_to "会員一覧", admin_users_path %>
-          </li>
-          <li>
-            <%= link_to "ジャンル一覧", admin_genres_path %>
-          </li>
-          <li>
-            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-          </li>
-        <% elsif user_signed_in? %>
-          <li>
-            <%= link_to "マイページ", user_mypage_path %>
-          </li>
-          <li>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to "新規登録", new_user_registration_path %>
-          </li>
-          <li>
-            <%= link_to "ログイン", new_user_session_path %>
-          </li>
-        <% end %>
-      </ul>
-    </header>
+    <div class="header">
+      <div class="header__inner">
+        <h1 class="logo"><%= link_to "推しアニ", "/" %></h1>
+        <div class="nav">
+          <ul class="nav-list">
+            <li class="nav-list-item">
+              <%= link_to "初めての方へ", about_path %>
+            </li>
+            <% if admin_signed_in? %>
+              <li class="nav-list-item">
+                <%= link_to "アニメ一覧", admin_path %>
+              </li>
+              <li class="nav-list-item">
+                <%= link_to "会員一覧", admin_users_path %>
+              </li>
+              <li class="nav-list-item">
+                <%= link_to "ジャンル一覧", admin_genres_path %>
+              </li>
+              <li class="nav-list-item">
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+              </li>
+            <% elsif user_signed_in? %>
+              <li class="nav-list-item">
+                <%= link_to "マイページ", user_mypage_path %>
+              </li>
+              <li class="nav-list-item">
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+              </li>
+            <% else %>
+              <li class="nav-list-item">
+                <%= link_to "新規登録", new_user_registration_path %>
+              </li>
+              <li class="nav-list-item">
+                <%= link_to "ログイン", new_user_session_path %>
+              </li>
+            <% end %>
+          </ul>
+          <%= form_with url:animes_search_path, method: :get, local: true do |f| %>
+            <div class="search">
+              <%= f.text_field :keyword, value: @keyword %>
+              <%= f.submit "検索" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
     <%= yield %>
   </body>
