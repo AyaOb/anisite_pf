@@ -69,3 +69,4 @@ gem "refile-mini_magick"
 gem 'pry-byebug'
 
 gem 'jquery-rails'
+gem 'acts-as-taggable-on', '~> 6.0'
