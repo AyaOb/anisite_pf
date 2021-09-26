@@ -40,19 +40,9 @@
           <%= link_to "削除する", anime_comment_path(comment.anime, comment), method: :delete %>
         <% end %>
 
-        <% if comment.liked_by?(current_user) %>
-          <div>
-            <%= link_to anime_comment_likes_path(@anime.id, comment.id), method: :delete do %>
-              ♥<%= comment.likes.count %>いいね
-            <% end %>
-          </div>
-        <% else %>
-          <div>
-            <%= link_to anime_comment_likes_path(@anime.id, comment.id), method: :post do %>
-              ♡<%= comment.likes.count %>いいね
-            <% end %>
-          </div>
-        <% end %>
+        <div id="likes_buttons_<%= comment.id %>">
+          <%= render 'public/likes/like', anime: @anime, comment: comment %>
+        </div>
 
       </div>
     <% end %>
