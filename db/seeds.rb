@@ -9,3 +9,10 @@ Admin.create!(
   email: 'admin@test.com',
   password: 'adminadmin'
 )
+
+array = %w(SF/ファンタジー ロボット/メカ アクション/バトル コメディ/ギャグ 恋愛/ラブコメ 日常/ほのぼの スポーツ/競技 ホラー/サスペンス/推理)
+array.each{ |tag|
+  tag_list = ActsAsTaggableOn::Tag.new
+  tag_list.name = tag
+  tag_list.save
+}

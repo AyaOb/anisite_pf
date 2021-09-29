@@ -6,6 +6,10 @@
       <div><%= attachment_image_tag anime, :image, :fill, 200, 100 %></div>
       <div><%= anime.name %></div>
       <div><%= anime.introduction %></div>
+      <div><%= anime.tag_list %></div>
+    <% end %>
+    <% @tags.each do |tag| %>
+      <%= link_to "#{tag.name}(#{tag.taggings_count})", animes_path(tag.name) %>
     <% end %>
   <% end %>
 </div>

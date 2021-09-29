@@ -12,5 +12,12 @@
 </div>
 <div>
   <%= f.label :genre_id, "ジャンル" %><br />
-  <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name), {include_blank: "--選択してください--"} %>
+  <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name, anime.genre_id), {include_blank: "--選択してください--"} %>
+</div>
+<div>
+  <%= f.label :tag_list, "タグ" %><br />
+  <% @tags.each do |tag| %>
+    <%= f.check_box :tag_list, { multiple: true }, "#{tag.name}", nil %>
+    <%= f.label "#{tag.name}(#{tag.taggings_count})" %><br />
+  <% end %>
 </div>

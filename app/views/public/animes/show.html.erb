@@ -11,6 +11,9 @@
     ジャンル
     <%= @anime.genre.name %>
   </div>
+  <div>
+    <%= @anime.tag_list %>
+  </div>
   <% if @anime.user == current_user %>
     <div>
       <%= link_to "編集する", edit_anime_path(@anime) %>

@@ -4,6 +4,8 @@ class Anime < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   attachment :image
+  
+  acts_as_taggable
 
   def self.search(keyword)
     where(["name like? OR introduction like?", "%#{keyword}%", "%#{keyword}%"])

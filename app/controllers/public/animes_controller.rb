@@ -2,11 +2,19 @@ class Public::AnimesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   def index
-    @anime_list = current_user.animes
+    # @anime_list = current_user.animes
+    @tags = ActsAsTaggableOn::Tag.all
+    # タグの一覧表示
+    if params[:tag]
+        @anime_list = Anime.tagged_with(params[:tag])
+    else
+      @anime_list = current_user.animes
+    end
   end
 
   def new
     @anime = Anime.new
+    @tags = ActsAsTaggableOn::Tag.all
   end
 
   def create
@@ -22,6 +30,7 @@ class Public::AnimesController < ApplicationController
 
   def edit
     @anime = Anime.find(params[:id])
+    @tags = ActsAsTaggableOn::Tag.all
   end
 
   def update
@@ -33,6 +42,6 @@ class Public::AnimesController < ApplicationController
   private
 
   def anime_params
-    params.require(:anime).permit(:genre_id, :name, :image, :introduction)
+    params.require(:anime).permit(:genre_id, :name, :image, :introduction, tag_list: [])
   end
 end

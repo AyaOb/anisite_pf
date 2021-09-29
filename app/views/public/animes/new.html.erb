@@ -1,6 +1,6 @@
 <h3>新規アニメ投稿</h3>
 <%= form_with model:@anime, url:animes_path, local:true do |f| %>
-  <%= render 'public/shared/anime', f: f %>
+  <%= render 'public/shared/anime', f: f, anime: @anime %>
   <div>
     <%= f.submit "投稿する" %>
   </div>
