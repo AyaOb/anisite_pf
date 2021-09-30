@@ -2,18 +2,12 @@ class Public::AnimesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   def index
-    # @anime_list = current_user.animes
-    @tags = ActsAsTaggableOn::Tag.all
-    # タグの一覧表示
-    if params[:tag]
-        @anime_list = Anime.tagged_with(params[:tag])
-    else
-      @anime_list = current_user.animes
-    end
+    @anime_list = current_user.animes
   end
 
   def new
     @anime = Anime.new
+    # 全タグを取得
     @tags = ActsAsTaggableOn::Tag.all
   end
 
