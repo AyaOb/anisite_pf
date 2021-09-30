@@ -9,7 +9,7 @@
   </div>
   <div>
     ジャンル
-    <%= @anime.genre.name %>
+    <%= link_to @anime.genre.name, root_path(genre_id: @anime.genre.id) %>
   </div>
   <div>
     <% @anime.tag_list.each do |tag| %>
