@@ -21,10 +21,12 @@
 }
 
 .header {
+  margin-bottom: 20px;
 
   &__inner {
     width: 1048px;
-    margin: 20px auto;
+    margin: 0px auto;
+    padding: 15px;
     display: flex;
     justify-content: flex-end;
   }
@@ -55,14 +57,23 @@
 .main {
   width: 728px;
   margin: 0 auto;
+
+  &__headline {
+    padding-left: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #2F61FF;
+  }
+
+  &__body {
+    padding-left: 20px;
+  }
 }
 
-.main__headline {
-  padding-left: 20px;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #2F61FF;
-}
+.form {
 
-.form__field {
-  
+
+  &__field {
+
+  }
+
 }
