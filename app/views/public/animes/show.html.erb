@@ -26,14 +26,16 @@
 
 <div class="comment">
   <h3>コメント</h3>
-  <div class="comment-add sction">
-    <%= form_with(model:[@anime, @comment], url:anime_comments_path(@anime.id), local:true) do |f| %>
-      <%= f.text_area :comment, rows:'5', cols:'40' %>
-      <div>
-        <%= f.submit "送信する" %>
-      </div>
-    <% end %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="comment-add sction">
+      <%= form_with(model:[@anime, @comment], url:anime_comments_path(@anime.id), local:true) do |f| %>
+        <%= f.text_area :comment, rows:'5', cols:'40' %>
+        <div>
+          <%= f.submit "送信する" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
   <div class="comments section">
     <div><%= @anime.comments.count %>件のコメント</div>
     <% @anime.comments.each do |comment| %>
