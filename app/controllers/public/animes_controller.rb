@@ -13,8 +13,12 @@ class Public::AnimesController < ApplicationController
 
   def create
     @anime = current_user.animes.new(anime_params)
-    @anime.save
-    redirect_to anime_path(@anime)
+    if @anime.save
+      redirect_to anime_path(@anime)
+    else
+      @tags = ActsAsTaggableOn::Tag.all
+      render :new
+    end
   end
 
   def show
@@ -29,8 +33,12 @@ class Public::AnimesController < ApplicationController
 
   def update
     @anime = Anime.find(params[:id])
-    @anime.update(anime_params)
-    redirect_to anime_path(@anime.id)
+    if @anime.update(anime_params)
+      redirect_to anime_path(@anime.id)
+    else
+      @tags = ActsAsTaggableOn::Tag.all
+      render :edit
+    end
   end
 
   private
