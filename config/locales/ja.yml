@@ -12,6 +12,15 @@ ja:
         name: "名前"
         email: "メールアドレス"
         password: "パスワード"
+      anime:
+        name: "タイトル"
+        genre: "ジャンル"
+        image: "アニメ画像"
+        introduction: "あらすじ"
+      comment:
+        comment: "コメント"
+      genre:
+        name: "ジャンル名"
 
   errors:
     format: "%{attribute}%{message}"
