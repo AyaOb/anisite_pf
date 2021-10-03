@@ -12,38 +12,38 @@
   <body>
     <div class="header">
       <div class="header__inner">
-        <h1 class="header__logo"><%= link_to "推しアニ", "/" %></h1>
+        <h1 class="header__logo"><%= link_to "推しアニ", "/", class: 'header__logo-link' %></h1>
         <div class="header__nav">
           <ul class="header__nav-list">
             <li class="header__nav-item">
-              <%= link_to "初めての方へ", about_path %>
+              <%= link_to "初めての方へ", about_path, class: 'header__link' %>
             </li>
             <% if admin_signed_in? %>
               <li class="header__nav-item">
-                <%= link_to "アニメ一覧", admin_path %>
+                <%= link_to "アニメ一覧", admin_path, class: 'header__link' %>
               </li>
               <li class="header__nav-item">
-                <%= link_to "会員一覧", admin_users_path %>
+                <%= link_to "会員一覧", admin_users_path, class: 'header__link' %>
               </li>
               <li class="header__nav-item">
-                <%= link_to "ジャンル一覧", admin_genres_path %>
+                <%= link_to "ジャンル一覧", admin_genres_path, class: 'header__link' %>
               </li>
               <li class="header__nav-item">
-                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'header__link' %>
               </li>
             <% elsif user_signed_in? %>
               <li class="header__nav-item">
-                <%= link_to "マイページ", user_mypage_path %>
+                <%= link_to "マイページ", user_mypage_path, class: 'header__link' %>
               </li>
               <li class="header__nav-item">
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'header__link' %>
               </li>
             <% else %>
               <li class="header__nav-item">
-                <%= link_to "新規登録", new_user_registration_path %>
+                <%= link_to "新規登録", new_user_registration_path, class: 'header__link' %>
               </li>
               <li class="header__nav-item">
-                <%= link_to "ログイン", new_user_session_path %>
+                <%= link_to "ログイン", new_user_session_path, class: 'header__link' %>
               </li>
             <% end %>
           </ul>
