@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   attachment :icon
+
+  validates :name, uniqueness: true, length: {in: 2..20 }
 end
