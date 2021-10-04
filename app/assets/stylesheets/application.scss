@@ -161,6 +161,21 @@
   &__button-genre:hover {
     background-image: linear-gradient(45deg, #709dff 75%, #b0c9ff 100%);
   }
+
+  &__group {
+    margin-bottom: 20px;
+    display: flex;
+  }
+
+  &__group-id {
+    margin-right: 15px;
+  }
+
+  &__group-num {
+    margin-left: 10px;
+    padding-left: 10px;
+    width: 50%;
+  }
 }
 
 .genre {
@@ -186,4 +201,32 @@
 
 .link:hover {
   background-image: linear-gradient(45deg, #709dff 75%, #b0c9ff 100%);
+}
+
+.profile {
+    width: 100%;
+    margin: 30px 0;
+
+  &__title {
+    width: 30%;
+    min-width: 150px;
+    padding: 10px;
+    padding-left: 20px;
+    border: 1px solid #B4C7E7;
+    text-align: left;
+  }
+
+  &__item {
+    padding: 0 20px;
+    border: 1px solid #B4C7E7;
+  }
+
+  &__edit-link {
+
+  }
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
