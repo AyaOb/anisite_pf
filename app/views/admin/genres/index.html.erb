@@ -1,22 +1,22 @@
 <div class="main">
-  <h3 class="main__headline">ジャンル一覧</h3>
+  <h2 class="main__headline">ジャンル一覧</h2>
   <%= form_with model:@genre, url:admin_genres_path, class: 'form', local: true do |f| %>
     <div class="form__field">
       <%= f.label :name, "ジャンル名", class: 'form__label' %>
       <%= f.text_field :name, class: 'form__imput' %>
-      <%= f.submit "新規登録" %>
+      <%= f.submit "新規登録", class: 'form__button-genre' %>
     </div>
   <% end %>
 
-  <table>
+  <table class="genre">
     <tbody>
-      <tr>
-        <th>ジャンル</th>
+      <tr class="retu">
+        <th class="title">ジャンル</th>
       </tr>
       <% @genre_list.each do |genre| %>
         <tr>
-          <td><%= genre.name %></td>
-          <td><%= link_to "編集する", edit_admin_genre_path(genre.id) %></td>
+          <td class="name"><%= genre.name %></td>
+          <td class=""><%= link_to "編集する", edit_admin_genre_path(genre.id), class: 'link' %></td>
         </tr>
       <% end %>
     </tbody>

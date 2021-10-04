@@ -136,6 +136,7 @@
     color: #fff;
     background-color: #1b8ef3;
     border: none;
+    border-radius: 10px;
   }
 
   &__link {
@@ -146,4 +147,43 @@
   &__add-user {
     color: #009;
   }
+
+  &__button-genre {
+    width: 20%;
+    padding: 5px;
+    color: #fff;
+    // background-color: #2FB0FF;
+    background-image: linear-gradient(45deg, #709dff 50%, #b0c9ff 100%);
+    border: none;
+    border-radius: 5px;
+  }
+
+  &__button-genre:hover {
+    background-image: linear-gradient(45deg, #709dff 75%, #b0c9ff 100%);
+  }
+}
+
+.genre {
+  margin: 20px 10px;
+  padding: 10px 30px;
+}
+
+
+.name {
+  padding: 10px 30px 10px 0;
+}
+
+.link {
+  margin-left: 10px;
+  padding: 2px 10px;
+  text-decoration: none;
+  color: #fff;
+  // background-color: #1b8ef3;
+  background-image: linear-gradient(45deg, #709dff 50%, #b0c9ff 100%);
+  border: 1px solid #B4C7E7;
+  border-radius: 5px;
+}
+
+.link:hover {
+  background-image: linear-gradient(45deg, #709dff 75%, #b0c9ff 100%);
 }
