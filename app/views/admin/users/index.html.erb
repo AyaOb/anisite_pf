@@ -11,7 +11,7 @@
       <% @user_list.each do |user| %>
       <tr>
         <td class="profile__item"><%= user.id %></td>
-        <td class="profile__item"><%= link_to user.name, admin_user_path(user.id) %></td>
+        <td class="profile__item"><%= link_to user.name, admin_user_path(user.id), class: 'profile__link' %></td>
         <td class="profile__item"><%= user.email %></td>
         <td class="profile__item">
           <% if user.is_active %>
