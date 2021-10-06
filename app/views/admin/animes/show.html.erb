@@ -45,19 +45,20 @@
   </div>
 
   <div class="comment">
-    <h3><%= @comments.count %>件のコメント</h3>
+    <h3 class="comment__headline"><%= @comments.count %>件のコメント</h3>
     <% @comments.each do |comment| %>
-      <div>
-        ユーザ画像
-        <%= comment.user.name %>
-        <%= comment.created_at %><br />
-        <%= comment.comment %>
-        <% if comment.is_active %>
-          <div>表示中</div>
-        <% else %>
-          <div>非表示</div>
-        <% end %>
-        <%= link_to "ステータス変更" %>
+      <div class="comment__list-item">
+        <div>ユーザ画像</div>
+        <div>
+          <div>
+            <%= comment.user.name %>
+            <%= l comment.created_at, format: :short %>
+          </div>
+          <div>
+            <%= comment.comment %>
+          </div>
+          <div>♡<%= comment.likes.count %></div>
+        </div>
       </div>
     <% end %>
   </div>

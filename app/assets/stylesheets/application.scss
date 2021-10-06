@@ -336,6 +336,24 @@ body {
   background-color: #1b8ef3;
   border-radius: 5px;
   }
+}
+
+.comment {
+  margin: 30px 0;
+  padding: 0 5px;
+
+  &__headline {
+    padding: 10px 0 10px 20px;
+    // margin-bottom: 20px;
+    border-top: 2px solid #DCDADA;
+    border-bottom: 2px solid #DCDADA;
+    color: #5A5A5A;
+  }
+
+  &__list-item {
+    padding: 20px 10px;
+    border-bottom: 2px solid #DCDADA;
+  }
 
 }
 
