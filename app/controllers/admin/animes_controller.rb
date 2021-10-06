@@ -5,9 +5,13 @@ class Admin::AnimesController < ApplicationController
     @comments = @anime.comments
   end
 
-  def edit
-  end
-
   def update
+    @anime = Anime.find(params[:id])
+    if @anime.is_active
+      @anime.update(is_active: false)
+    else
+      @anime.update(is_active: true)
+    end
+    redirect_to admin_anime_path(@anime)
   end
 end

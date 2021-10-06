@@ -1,24 +1,37 @@
 <div class="main">
   <h2 class="main__headline">アニメ一覧</h2>
-  <div>
+  <div class="anime">
+    <div class="anime__list">
     <% @anime_list.each do |anime| %>
-      <div>
-        <div>
+      <div class="anime__item">
+        <div class="anime__image">
           <%= link_to admin_anime_path(anime.id) do %>
             <%= attachment_image_tag anime, :image, :fill, 200, 100 %>
           <% end %>
-          <div>引用元：</div>
         </div>
-        <div>
-          <%= link_to anime.name, admin_anime_path(anime.id) %>(<%= link_to anime.user.name %>)<br />
-          更新日:<%= l anime.updated_at, format: :short %>
-          <% if anime.is_active %>
-            <div>表示</div>
-          <% else %>
-            <div>非表示</div>
+        <div class="anime__image-quote">
+          <div class="anime__quote">引用元:</div>
+          <div class="anime__quote-link"><%= link_to anime.quote, anime.quote_url, class: 'anime__link-quote' %></div>
+        </div>
+        <div class="anime__info">
+          <%= link_to admin_anime_path(anime.id), class: 'anime__link-info' do %>
+            <div class="anime__info-title">
+              <%= anime.name %>
+              <span class="anime__info-user"><%= anime.user.name %></span>
+            </div>
+            <div class="anime__info-update">
+              <%= l anime.updated_at, format: :short %>
+              <span class="anime__info-user">更新</span>
+            </div>
+            <% if anime.is_active %>
+              <div class="anime__info-status">公開中</div>
+            <% else %>
+              <div class="anime__info-status">非表示</div>
+            <% end %>
           <% end %>
         </div>
       </div>
     <% end %>
+    </div>
   </div>
 </div>

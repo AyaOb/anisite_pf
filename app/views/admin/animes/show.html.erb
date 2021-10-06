@@ -1,38 +1,45 @@
 <div class="main">
   <h2 class="main__headline"><%= @anime.name %></h2>
   <div class="anime">
-    <div>
-      <%= attachment_image_tag @anime, :image, :fill, 200, 100 %>
+    <div class="anime__image">
+      <%= attachment_image_tag @anime, :image, :fill, 200, 200 %>
+      <div class="anime__image-quote">
+        <div class="anime__quote">引用元：</div>
+        <div class="anime__quote-link"><%= link_to @anime.quote, @anime.quote_url, class: 'anime__link-quote' %></div>
+      </div>
     </div>
-    <div>
-      <div>引用元：</div>
-      <div></div>
-    </div>
-    <div>
-      <h4>ユーザ名</h4>
-      <div><%= @anime.name %></div>
-    </div>
-    <div><h4>更新日</h4><%= l @anime.updated_at, format: :default %></div>
-    <div><%= @anime.user.name %></div>
-    <div>
-      <h4>ジャンル</h4>
-      <div><%= @anime.genre.name %></div>
-    </div>
-    <div>
-      <h4>推しポイント／魅力</h4>
-      <div><%= @anime.introduction %></div>
-    </div>
-    <div>
-      <h4>ステータス</h4>
+    <div class="anime__detail">
       <div>
-        <% if @anime.is_active %>
-          <div>公開中</div>
-        <% else %>
-          <div>非公開</div>
-        <% end %>
+        <h3 class="anime__detail-title">アニメタイトル</h3>
+        <div class="anime__detail-item"><%= @anime.name %></div>
       </div>
       <div>
-        <%= link_to "変更", edit_admin_anime_path(@anime) %>
+        <h3 class="anime__detail-title">更新日</h3>
+        <div class="anime__detail-item"><%= l @anime.updated_at, format: :default %></div>
+      </div>
+      <div>
+        <h3 class="anime__detail-title">ユーザ名</h3>
+        <div class="anime__detail-item"><%= @anime.user.name %></div>
+      </div>
+      <div>
+        <h3 class="anime__detail-title">ジャンル</h3>
+        <div class="anime__detail-item"><%= @anime.genre.name %></div>
+      </div>
+      <div>
+        <h3 class="anime__detail-title">推しポイント／魅力</h3>
+        <div class="anime__detail-item"><%= @anime.introduction %></div>
+      </div>
+      <div>
+        <h3 class="anime__detail-title">ステータス</h3>
+        <div class="anime__detail-item">
+          <% if @anime.is_active %>
+            <div>公開中</div>
+            <%= link_to "公開しない", admin_anime_path(@anime.id), method: :patch, class: 'anime__change-status' %>
+          <% else %>
+            <div>非公開</div>
+            <%= link_to "公開する", admin_anime_path(@anime.id), method: :patch, class: 'anime__change-status' %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
