@@ -4,6 +4,7 @@
     <title>Anisite</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/8d0a097f97.js" crossorigin="anonymous"></script>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -49,8 +50,10 @@
           </ul>
           <%= form_with url:animes_search_path, method: :get, local: true do |f| %>
             <div class="header__search">
-              <%= f.text_field :keyword, value: @keyword %>
-              <%= f.submit "検索" %>
+              <%= f.text_field :keyword, value: @keyword, class: 'header__text' %>
+              <%= button_tag type: :submit, class: 'header__button' do %>
+                <i class="fas fa-search"></i>
+              <% end %>
             </div>
           <% end %>
         </div>
