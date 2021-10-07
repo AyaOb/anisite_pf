@@ -1,12 +1,37 @@
-<h3>投稿したアニメ一覧</h3>
-<%= current_user.email %>
-<div>
-  <% @anime_list.each do |anime| %>
-    <%= link_to anime_path(anime.id) do %>
-      <div><%= attachment_image_tag anime, :image, :fill, 200, 100 %></div>
-      <div><%= anime.name %></div>
-      <div><%= anime.introduction %></div>
-      <div><%= anime.tag_list %></div>
-    <% end %>
-  <% end %>
+<div class="main">
+  <h2 class="main__headline">投稿したアニメ一覧</h2>
+  <%= current_user.email %>
+  <div>
+    <div class="anime__list">
+      <% @anime_list.each do |anime| %>
+        <div class="anime__item">
+          <div class="anime__image">
+            <%= link_to anime_path(anime.id) do %>
+              <div><%= attachment_image_tag anime, :image, :fill, 200, 100 %></div>
+            <% end %>
+          </div>
+          <div class="anime__image-quote">
+            <div class="anime__quote">引用元:</div>
+            <div class="anime__quote-link">
+              <%= link_to anime.quote, anime.quote_url, class: 'anime__link-quote' %>
+            </div>
+          </div>
+          <div class="anime__info">
+            <%= link_to anime_path(anime.id), class: 'anime__link-info' do %>
+              <div class="anime__info-title">
+                <%= anime.name %>
+              </div>
+              <div class="anime__tag-list">
+                <% anime.tag_list.each do |tag| %>
+                  <span class="anime__tag-item">
+                    <%= tag %>
+                  </span>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
