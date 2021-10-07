@@ -19,7 +19,7 @@
       </div>
       <div>
         <h3 class="anime__detail-title">ユーザ名</h3>
-        <div class="anime__detail-item"><%= @anime.user.name %></div>
+        <div class="anime__detail-item"><%= link_to @anime.user.name, admin_user_path(@anime), class: 'anime__link-quote' %></div>
       </div>
       <div>
         <h3 class="anime__detail-title">ジャンル</h3>
@@ -48,11 +48,13 @@
     <h3 class="comment__headline"><%= @comments.count %>件のコメント</h3>
     <% @comments.each do |comment| %>
       <div class="comment__list-item">
-        <div class="comment__item-icon">ユーザ画像</div>
+        <div class="comment__item-icon">
+          <%= attachment_image_tag comment.user, :icon, :fill, 60, 60, fallback: 'no_user_image', class: 'comment__icon' %>
+        </div>
         <div class="comment__item-info">
           <div class="comment__item-user">
-            <%= comment.user.name %>
-            <%= l comment.created_at, format: :short %>
+            <%= link_to comment.user.name, admin_user_path(comment) , class: 'comment__link-user' %>
+            <span class="anime__info-user"><%= l comment.created_at, format: :short %></span>
           </div>
           <div class="comment__item-comment">
             <%= comment.comment %>

@@ -14,6 +14,10 @@
  *= require_self
  */
 
+  @import 'font-awesome-sprockets';
+  @import 'font-awesome';
+
+
 * {
   margin: 0;
   padding: 0;
@@ -320,7 +324,7 @@ body {
 
   &__link-quote {
     color: #009;
-    text-decoration: none;
+    // text-decoration: none;
   }
 
   &__link-info {
@@ -344,7 +348,6 @@ body {
 
   &__headline {
     padding: 10px 0 10px 20px;
-    // margin-bottom: 20px;
     border-top: 2px solid #DCDADA;
     border-bottom: 2px solid #DCDADA;
     color: #5A5A5A;
@@ -356,10 +359,27 @@ body {
     display: flex;
   }
 
+  &__item-icon {
+    width: 80px;
+    padding: 0 10px;
+  }
+
+  &__icon {
+    border-radius: 50%;
+  }
+
   &__item-info {
     padding-left: 10px;
   }
 
+  &__item-user {
+
+  }
+
+  &__link-user {
+    color: #5A5A5A;
+    text-decoration: none;
+  }
 }
 
 table {
