@@ -353,6 +353,11 @@ body {
   &__list-item {
     padding: 20px 10px;
     border-bottom: 2px solid #DCDADA;
+    display: flex;
+  }
+
+  &__item-info {
+    padding-left: 10px;
   }
 
 }

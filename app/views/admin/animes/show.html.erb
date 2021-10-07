@@ -48,16 +48,16 @@
     <h3 class="comment__headline"><%= @comments.count %>件のコメント</h3>
     <% @comments.each do |comment| %>
       <div class="comment__list-item">
-        <div>ユーザ画像</div>
-        <div>
-          <div>
+        <div class="comment__item-icon">ユーザ画像</div>
+        <div class="comment__item-info">
+          <div class="comment__item-user">
             <%= comment.user.name %>
             <%= l comment.created_at, format: :short %>
           </div>
-          <div>
+          <div class="comment__item-comment">
             <%= comment.comment %>
           </div>
-          <div>♡<%= comment.likes.count %></div>
+          <div class="comment__item-likes">♡<%= comment.likes.count %></div>
         </div>
       </div>
     <% end %>
