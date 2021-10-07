@@ -1,20 +1,22 @@
-<div>
+<div class="main">
   <% if @keyword %>
-    <h3>
+    <h2 class="main__headline">
       「<%= @keyword %>」検索結果
-    </h3>
+    </h2>
   <% elsif @name %>
-    <h3>
+    <h2 class="main__headline">
       <%= @name %>アニメ一覧
-    </h3>
+    </h2>
   <% else %>
     <div>
-      <h3>
+      <h2 class="main__headline">
         ジャンルから探す
-      </h3>
-      <div>
+      </h2>
+      <div class="genre-list">
         <% @genre_list.each do |genre| %>
-          <%= link_to genre.name, root_path(genre_id: genre.id), class: 'genre-button' %>
+          <div class="genre-list__item">
+            <%= link_to genre.name, root_path(genre_id: genre.id), class: 'genre-list__button' %>
+          </div>
         <% end %>
       </div>
     </div>
@@ -22,14 +24,24 @@
 
   <div>
     <% if !@keyword && !@name %>
-      <h3>アニメ一覧</h3>
+      <h2 class="main__headline">アニメ一覧</h2>
     <% end %>
-    <div>
+    <div class="anime__list">
       <% @anime_list.each do |anime| %>
-        <%= link_to anime_path(anime.id) do %>
-          <div><%= attachment_image_tag anime, :image, :fill, 200, 100 %></div>
-          <div><%= anime.name %></div>
-        <% end %>
+        <div class="anime__item">
+          <div class="anime__image">
+            <%= link_to anime_path(anime.id) do %>
+              <div><%= attachment_image_tag anime, :image, :fill, 200, 100 %></div>
+            <% end %>
+          </div>
+          <div class="anime__image-quote">
+            <div class="anime__quote">引用元:</div>
+            <div class="anime__quote-link"><%= link_to anime.quote, anime.quote_url, class: 'anime__link-quote' %></div>
+          </div>
+          <div class="anime__info">
+            <div class="anime__info-title"><%= anime.name %></div>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

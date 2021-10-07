@@ -233,6 +233,22 @@ body {
   background-image: linear-gradient(45deg, #709dff 75%, #b0c9ff 100%);
 }
 
+.genre-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 20px;
+  margin-bottom: 20px;
+
+  &__item {
+    width: 24%;
+  }
+
+  &__button {
+    color: #009;
+    text-decoration: none;
+  }
+}
+
 .profile {
     width: 100%;
     margin: 30px 0;
@@ -271,8 +287,10 @@ body {
 
   &__item {
     width: 24%;
+    min-height: 200px;
     background-color: white;
-    margin: 2px;
+    margin: 5px 4px;
+    padding-bottom: 10px ;
   }
 
   &__item:hover {
@@ -300,7 +318,7 @@ body {
 
   &__info {
     padding: 0 5px;
-    // margin: 0 auto;
+    margin-top: 5px;
   }
 
   &__info-title {
@@ -313,11 +331,11 @@ body {
   }
 
   &__info-update {
-
+    font-size: 90%;
   }
 
   &__info-status {
-
+    font-size: 80%;
   }
 
   &__detail {
