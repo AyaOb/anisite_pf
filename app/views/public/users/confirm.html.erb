@@ -1,6 +1,13 @@
-<h3>退会確認</h3>
-
-<div>本当に退会しますか？退会すると投稿やコメントができなくなります。</div>
-
-<%= link_to "退会する", user_quit_path, method: :patch %>
-<%= link_to "退会しない", user_edit_path %>
+<div class="main">
+  <h2 class="main__headline">退会確認</h2>
+  <div class="profile">
+    <div class="profile__confirm-text">
+      本当に退会しますか？<br />
+      退会すると投稿やコメントができなくなります。
+    </div>
+    <div class="profile__confirm">
+      <%= link_to "退会する", user_quit_path, method: :patch, class: 'profile__confirm-yes' %>
+      <%= link_to "退会しない", user_edit_path, class: 'profile__confirm-no' %>
+    </div>
+  </div>
+</div>

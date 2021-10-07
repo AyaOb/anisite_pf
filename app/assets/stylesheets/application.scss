@@ -285,6 +285,32 @@ body {
   &__link {
     color: #009;
   }
+
+  &__confirm-text {
+    padding-left: 20px;
+  }
+
+  &__confirm {
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 10px;
+  }
+
+  &__confirm-yes {
+    text-decoration: none;
+    padding: 5px 20px;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #FF8415;
+  }
+
+  &__confirm-no {
+    text-decoration: none;
+    padding: 5px 20px;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #1b8ef3;
+  }
 }
 
 .anime {
