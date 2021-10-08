@@ -12,16 +12,18 @@
         <%= comment.comment %>
       </div>
 
-      <% if comment.user == current_user || admin_signed_in? %>
-        <%= link_to "削除する", anime_comment_path(comment.anime, comment), method: :delete %>
-      <% end %>
-
       <% if admin_signed_in? %>
         <div class="comment__item-likes">♡<%= comment.likes.count %></div>
       <% else %>
         <div id="likes_buttons_<%= comment.id %>">
           <%= render 'public/likes/like', anime: anime, comment: comment %>
         </div>
+      <% end %>
+
+      <% if comment.user == current_user || admin_signed_in? %>
+      <div class="comment__item-likes">
+        <%= link_to "削除する", anime_comment_path(comment.anime, comment), method: :delete, class: 'profile__confirm-yes' %>
+      </div>
       <% end %>
     </div>
   </div>
