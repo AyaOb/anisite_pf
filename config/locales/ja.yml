@@ -16,7 +16,9 @@ ja:
         name: "タイトル"
         genre: "ジャンル"
         image: "アニメ画像"
-        introduction: "あらすじ"
+        quote: "引用元"
+        quote_url: "引用元へのリンク"
+        introduction: "推しポイント／魅力"
       comment:
         comment: "コメント"
       genre:

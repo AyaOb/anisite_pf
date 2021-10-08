@@ -10,6 +10,8 @@ class Anime < ApplicationRecord
   validates :name, presence: true
   validates :genre, presence: true
   validates :image, presence: true
+  validates :quote, presence: true
+  validates :quote_url, presence: true
   validates :introduction, presence: true
 
   def self.search(keyword)
