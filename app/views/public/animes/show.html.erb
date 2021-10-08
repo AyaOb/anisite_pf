@@ -1,58 +1,21 @@
-<h3><%= @anime.name %>(アニメ詳細画面)</h3>
-<div class="anime">
-  <div>
-    <%= attachment_image_tag @anime, :image, :fill, 200, 100 %>
+<div class="main">
+    <h2 class="main__headline"><%= @anime.name %></h2>
+  <div class="anime">
+    <%= render 'layouts/anime_show', anime: @anime %>
   </div>
-  <div>
-    あらすじ
-    <%= @anime.introduction %>
-  </div>
-  <div>
-    ジャンル
-    <%= link_to @anime.genre.name, root_path(genre_id: @anime.genre.id) %>
-  </div>
-  <div>
-    <% @anime.tag_list.each do |tag| %>
-      <%= link_to tag, root_path(tag_name: tag) %>
-    <% end %>
 
-  </div>
-  <% if @anime.user == current_user %>
-    <div>
-      <%= link_to "編集する", edit_anime_path(@anime) %>
-    </div>
-  <% end %>
-</div>
-
-<div class="comment">
-  <h3>コメント</h3>
-  <% if user_signed_in? %>
-    <div class="comment-add sction">
-      <%= form_with(model:[@anime, @comment], url:anime_comments_path(@anime.id), local:true) do |f| %>
-        <%= f.text_area :comment, rows:'5', cols:'40' %>
-        <div>
-          <%= f.submit "送信する" %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-  <div class="comments section">
-    <div><%= @anime.comments.count %>件のコメント</div>
-    <% @anime.comments.each do |comment| %>
-      <div>
-        <%= attachment_image_tag comment.user, :icon, :fill, 60, 60 %>
-        <%= comment.user.name %><br />
-        <%= comment.comment %>
-
-        <% if comment.user == current_user %>
-          <%= link_to "削除する", anime_comment_path(comment.anime, comment), method: :delete %>
+  <div class="comment">
+    <h3 class="main__headline"><%= @anime.comments.count %>件のコメント</h3>
+    <% if user_signed_in? %>
+      <div class="comment__add">
+        <%= form_with(model:[@anime, @comment], url:anime_comments_path(@anime.id), local:true) do |f| %>
+          <%= f.text_area :comment, rows:'5', cols:'40', class: 'form__imput' %>
+          <div class="form__actions">
+            <%= f.submit "送信する", class: 'form__button-genre' %>
+          </div>
         <% end %>
-
-        <div id="likes_buttons_<%= comment.id %>">
-          <%= render 'public/likes/like', anime: @anime, comment: comment %>
-        </div>
-
       </div>
     <% end %>
+    <%= render 'layouts/comment_show', comments: @anime.comments, anime: @anime %>
   </div>
 </div>

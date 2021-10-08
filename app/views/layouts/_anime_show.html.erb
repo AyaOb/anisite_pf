@@ -1,0 +1,60 @@
+<div class="anime__image">
+  <%= attachment_image_tag anime, :image, :fill, 200, 200 %>
+  <div class="anime__image-quote">
+    <div class="anime__quote">引用元：</div>
+    <div class="anime__quote-link"><%= link_to anime.quote, anime.quote_url, class: 'anime__link-quote' %></div>
+  </div>
+</div>
+<div class="anime__detail">
+  <div>
+    <h3 class="anime__detail-title">アニメタイトル</h3>
+    <div class="anime__detail-item"><%= anime.name %></div>
+  </div>
+  <div>
+    <h3 class="anime__detail-title">更新日</h3>
+    <div class="anime__detail-item"><%= l anime.updated_at, format: :default %></div>
+  </div>
+  <div>
+    <h3 class="anime__detail-title">ユーザ名</h3>
+    <div class="anime__detail-item"><%= link_to anime.user.name, admin_user_path(anime), class: 'genre-list__button' %></div>
+  </div>
+  <div>
+    <h3 class="anime__detail-title">ジャンル</h3>
+    <div class="anime__detail-item">
+      <%= link_to anime.genre.name, root_path(genre_id: anime.genre.id), class: 'genre-list__button' %>
+    </div>
+  </div>
+  <div>
+    <h3 class="anime__detail-title">タグ</h3>
+    <div class="anime__detail-item">
+      <% anime.tag_list.each do |tag| %>
+        <%= link_to tag, root_path(tag_name: tag), class: 'genre-list__button' %>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <h3 class="anime__detail-title">推しポイント／魅力</h3>
+    <div class="anime__detail-item"><%= anime.introduction %></div>
+  </div>
+
+  <% if admin_signed_in? %>
+    <div>
+      <h3 class="anime__detail-title">ステータス</h3>
+      <div class="anime__detail-item">
+        <% if anime.is_active %>
+          <div>公開中</div>
+          <%= link_to "公開しない", admin_anime_path(anime.id), method: :patch, class: 'anime__change-status' %>
+        <% else %>
+          <div>非公開</div>
+          <%= link_to "公開する", admin_anime_path(anime.id), method: :patch, class: 'anime__change-status' %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @anime.user == current_user %>
+    <div class="form__actions">
+      <%= link_to "編集する", edit_anime_path(@anime), class: 'link' %>
+    </div>
+  <% end %>
+</div>

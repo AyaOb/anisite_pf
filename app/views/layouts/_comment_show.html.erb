@@ -1,0 +1,28 @@
+<% comments.each do |comment| %>
+  <div class="comment__list-item">
+    <div class="comment__item-icon">
+      <%= attachment_image_tag comment.user, :icon, :fill, 60, 60, fallback: 'no_user_image', class: 'comment__icon' %>
+    </div>
+    <div class="comment__item-info">
+      <div class="comment__item-user">
+        <%= link_to comment.user.name, admin_user_path(comment) , class: 'comment__link-user' %>
+        <span class="anime__info-user"><%= l comment.created_at, format: :short %></span>
+      </div>
+      <div class="comment__item-comment">
+        <%= comment.comment %>
+      </div>
+
+      <% if comment.user == current_user || admin_signed_in? %>
+        <%= link_to "削除する", anime_comment_path(comment.anime, comment), method: :delete %>
+      <% end %>
+
+      <% if admin_signed_in? %>
+        <div class="comment__item-likes">♡<%= comment.likes.count %></div>
+      <% else %>
+        <div id="likes_buttons_<%= comment.id %>">
+          <%= render 'public/likes/like', anime: anime, comment: comment %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
