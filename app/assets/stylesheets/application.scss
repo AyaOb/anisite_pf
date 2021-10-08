@@ -136,14 +136,22 @@ body {
   margin-bottom: 10px;
 
   &__error-explanation {
-    margin-bottom: 10px;
+  }
+
+  &__error-list {
+    padding: 5px 10px 10px 20px;
+    padding-bottom: 10px;
+  }
+
+  &__error-item {
     font-size: 80%;
     color: red;
   }
 
   &__notice {
-    margin-bottom: 10px;
+    margin: 10px 0;
     font-size: 80%;
+    color: red;
   }
 
   &__field {
@@ -157,8 +165,23 @@ body {
 
   &__imput {
     margin-left: 30px;
-    padding: 5px;
+    padding: 3px;
     width: 50%;
+  }
+
+  &__imput-image {
+    margin-top: 10px;
+     margin-left: 30px;
+     padding: 3px;
+  }
+
+  &__select-genre {
+    margin-left: 30px;
+    padding: 3px;
+  }
+
+  &__check-tag {
+
   }
 
   &__actions {
@@ -359,7 +382,8 @@ body {
   }
 
   &__info-title {
-
+    color: #03c;
+    font-size: 120%;
   }
 
   &__info-user {
@@ -394,7 +418,7 @@ body {
   }
 
   &__link-quote {
-    color: #03c;
+    color: #5A5A5A;
   }
 
   &__link-info {
@@ -419,6 +443,7 @@ body {
   &__tag-item {
     padding: 2px;
     color: #03c;
+    font-size: 90%;
   }
 }
 

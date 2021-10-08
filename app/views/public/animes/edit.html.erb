@@ -1,7 +1,9 @@
-<h3>アニメ投稿内容編集</h3>
-<%= form_with model:@anime, url:anime_path(@anime.id), local:true do |f| %>
-  <%= render 'public/shared/anime', f: f, anime: @anime %>
-  <div>
-    <%= f.submit "変更を保存" %>
-  </div>
-<% end %>
+<div class="main">
+  <h2 class="main__headline">アニメ投稿内容編集</h2>
+  <%= form_with model:@anime, url:anime_path(@anime.id), local:true do |f| %>
+    <%= render 'public/animes/anime', f: f, anime: @anime %>
+    <div class="form__actions">
+      <%= f.submit "変更を保存", class: 'form__button' %>
+    </div>
+  <% end %>
+</div>

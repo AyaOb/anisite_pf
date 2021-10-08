@@ -5,7 +5,7 @@
     </h2>
   <% elsif @name %>
     <h2 class="main__headline">
-      <%= @name %>アニメ一覧
+      「<%= @name %>」アニメ一覧
     </h2>
   <% else %>
     <div>
@@ -36,10 +36,16 @@
           </div>
           <div class="anime__image-quote">
             <div class="anime__quote">引用元:</div>
-            <div class="anime__quote-link"><%= link_to anime.quote, anime.quote_url, class: 'anime__link-quote' %></div>
+            <div class="anime__quote-link">
+              <%= link_to anime.quote, anime.quote_url, class: 'anime__link-quote' %>
+            </div>
           </div>
           <div class="anime__info">
-            <div class="anime__info-title"><%= anime.name %></div>
+            <%= link_to anime_path(anime.id), class: 'genre-list__button' do %>
+              <div class="anime__info-title">
+                <%= anime.name %>
+              </div>
+            <% end %>
           </div>
         </div>
       <% end %>
