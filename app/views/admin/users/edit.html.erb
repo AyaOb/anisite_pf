@@ -1,6 +1,15 @@
 <div class="main">
   <h2 class="main__headline"><%= @user.name %>さんの会員情報編集</h2>
-  <%= form_with model:@user, url:admin_user_path(@user.id), local:true do |f| %>
+  <%= form_with model:@user, url:admin_user_path(@user.id), class: 'form', local:true do |f| %>
+    <% if @user.errors.any? %>
+      <div class="form__error_explanation">
+        <ul class="form__error-list">
+          <% @user.errors.full_messages.each do |message| %>
+            <li class="form__error-item"><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <div class="form__group">
       <div class="form__group-id">ユーザID</div>
       <div class="form__group-num"><%= @user.id %></div>
