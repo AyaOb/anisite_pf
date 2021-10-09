@@ -16,7 +16,11 @@
   </div>
   <div>
     <h3 class="anime__detail-title">ユーザ名</h3>
-    <div class="anime__detail-item"><%= link_to anime.user.name, admin_user_path(anime), class: 'genre-list__button' %></div>
+    <% if admin_signed_in? %>
+      <div class="anime__detail-item"><%= link_to anime.user.name, admin_user_path(anime.user.id), class: 'genre-list__button' %></div>
+    <% else %>
+      <div class="anime__detail-item"><%= anime.user.name %></div>
+    <% end %>
   </div>
   <div>
     <h3 class="anime__detail-title">ジャンル</h3>
@@ -28,7 +32,7 @@
     <h3 class="anime__detail-title">タグ</h3>
     <div class="anime__detail-item">
       <% anime.tag_list.each do |tag| %>
-        <%= link_to tag, root_path(tag_name: tag), class: 'genre-list__button' %>
+        <%= link_to tag, root_path(tag_name: tag), class: 'anime__tag-item' %>
       <% end %>
     </div>
   </div>
