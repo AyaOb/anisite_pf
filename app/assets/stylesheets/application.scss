@@ -340,6 +340,14 @@ body {
   display: flex;
   flex-wrap: wrap;
 
+  &__no-anime {
+    margin: 20px;
+    padding: 20px 0;
+    color: #5A5A5A;
+    text-align: center;
+    border: 1px solid #B4C7E7;
+  }
+
   &__list {
     display: flex;
     flex-wrap: wrap;
@@ -493,7 +501,10 @@ body {
   }
 
   &__item-likes {
-    margin-bottom: 5px;
+  }
+
+  &__delete-button {
+    padding-top: 10px;
   }
 }
 

@@ -1,11 +1,11 @@
 <% if user_signed_in? %>
   <% if comment.liked_by?(current_user) %>
     <%= link_to anime_comment_likes_path(anime.id, comment.id), method: :delete, remote: true do %>
-      ♥<%= comment.likes.count %>いいね
+      ♥<%= comment.likes.count %>
     <% end %>
   <% else %>
     <%= link_to anime_comment_likes_path(anime.id, comment.id), method: :post, remote: true do %>
-      ♡<%= comment.likes.count %>いいね
+      ♡<%= comment.likes.count %>
     <% end %>
   <% end %>
 <% else %>
