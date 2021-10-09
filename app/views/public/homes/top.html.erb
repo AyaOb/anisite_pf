@@ -28,26 +28,28 @@
     <% end %>
     <div class="anime__list">
       <% @anime_list.each do |anime| %>
-        <div class="anime__item">
-          <div class="anime__image">
-            <%= link_to anime_path(anime.id) do %>
-              <div><%= attachment_image_tag anime, :image, :fill, 200, 100 %></div>
-            <% end %>
-          </div>
-          <div class="anime__image-quote">
-            <div class="anime__quote">引用元:</div>
-            <div class="anime__quote-link">
-              <%= link_to anime.quote, anime.quote_url, class: 'anime__link-quote' %>
+        <% if anime.is_active %>
+          <div class="anime__item">
+            <div class="anime__image">
+              <%= link_to anime_path(anime.id) do %>
+                <div><%= attachment_image_tag anime, :image, :fill, 200, 100 %></div>
+              <% end %>
+            </div>
+            <div class="anime__image-quote">
+              <div class="anime__quote">引用元:</div>
+              <div class="anime__quote-link">
+                <%= link_to anime.quote, anime.quote_url, class: 'anime__link-quote' %>
+              </div>
+            </div>
+            <div class="anime__info">
+              <%= link_to anime_path(anime.id), class: 'genre-list__button' do %>
+                <div class="anime__info-title">
+                  <%= anime.name %>
+                </div>
+              <% end %>
             </div>
           </div>
-          <div class="anime__info">
-            <%= link_to anime_path(anime.id), class: 'genre-list__button' do %>
-              <div class="anime__info-title">
-                <%= anime.name %>
-              </div>
-            <% end %>
-          </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   </div>

@@ -9,35 +9,44 @@
 <% end %>
 <div class="form__notice">※　必須項目</div>
 <div class="form__field">
-  <%= f.label :name, "アニメタイトル", class: 'form__label' %>
+  <%= f.label :name, "アニメタイトル ※", class: 'form__label' %>
   <%= f.text_field :name, autofocus: true, class: 'form__imput' %>
 </div>
 <div class="form__field">
-  <%= f.label :image, "アニメ画像", class: 'form__label' %>
+  <%= f.label :image, "アニメ画像 ※", class: 'form__label' %>
   <%= attachment_image_tag anime, :image, :fill, 100, 100 %>
   <%= f.attachment_field :image, class: 'form__imput-image' %>
 </div>
 <div class="form__field">
-  <%= f.label :quote, "引用元", class: 'form__label' %>
+  <%= f.label :quote, "引用元 ※", class: 'form__label' %>
   <%= f.text_field :quote, class: 'form__imput' %>
 </div>
 <div class="form__field">
-  <%= f.label :quote_url, "引用元へのリンク", class: 'form__label' %>
+  <%= f.label :quote_url, "引用元へのリンク ※", class: 'form__label' %>
   <%= f.text_field :quote_url, class: 'form__imput' %>
 </div>
 <div class="form__field">
-  <%= f.label :introduction, "推しポイント／魅力", class: 'form__label' %>
+  <%= f.label :introduction, "推しポイント／魅力 ※", class: 'form__label' %>
   <%= f.text_area :introduction, rows:'6', cols:'40', class: 'form__imput' %>
 </div>
 <div class="form__field">
-  <%= f.label :genre_id, "ジャンル", class: 'form__label' %>
+  <%= f.label :genre_id, "ジャンル ※", class: 'form__label' %>
   <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name, anime.genre_id), {include_blank: "--選択してください--"}, class: 'form__select-genre' %>
 </div>
 <div class="form__field">
-  <%= f.label :tag_list, "タグ", class: 'form__label' %>
+  <%= f.label :tag_list, "タグ ※", class: 'form__label' %>
   <div>※複数選択可能</div>
   <% @tags.each do |tag| %>
     <%= f.check_box :tag_list, { multiple: true }, "#{tag.name}", nil %>
     <%= f.label "#{tag.name}" %>
   <% end %>
+</div>
+<div class="form__field">
+  <%= f.label :genre_id, "ステータス ※", class: 'form__label' %>
+  <div class='form__imput'>
+    <%= f.radio_button :is_active, :true %>
+    <%= f.label :is_active, "公開", value: :true %>
+    <%= f.radio_button :is_active, :false %>
+    <%= f.label :is_active, "非公開", value: :false %>
+  </div>
 </div>

@@ -49,6 +49,6 @@ class Public::AnimesController < ApplicationController
   private
 
   def anime_params
-    params.require(:anime).permit(:genre_id, :name, :image, :quote, :quote_url, :introduction, tag_list: [])
+    params.require(:anime).permit(:genre_id, :name, :image, :quote, :quote_url, :introduction, :is_active, tag_list: [])
   end
 end
