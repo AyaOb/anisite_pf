@@ -28,7 +28,12 @@ class Public::AnimesController < ApplicationController
 
   def edit
     @anime = Anime.find(params[:id])
-    @tags = ActsAsTaggableOn::Tag.all
+    if current_user == @anime.user
+      @tags = ActsAsTaggableOn::Tag.all
+      render :edit
+    else
+      redirect_to anime_path(@anime)
+    end
   end
 
   def update
