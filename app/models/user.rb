@@ -10,5 +10,5 @@ class User < ApplicationRecord
 
   attachment :icon
 
-  validates :name, uniqueness: true, length: {in: 2..20 }
+  validates :name, uniqueness: true, presence: true
 end
