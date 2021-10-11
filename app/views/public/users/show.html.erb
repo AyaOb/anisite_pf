@@ -1,9 +1,15 @@
 <div class="main">
   <h2 class="main__headline">マイページ</h2>
   <ul class="mypage__button-list">
-    <li class="mypage__button"><%= link_to "ユーザ情報編集", user_edit_path, class: 'link' %></li>
-    <li class="mypage__button"><%= link_to "投稿アニメ一覧", animes_path, class: 'link' %></li>
-    <li class="mypage__button"><%= link_to "新規アニメ投稿", new_anime_path, class: 'link' %></li>
+    <li class="mypage__button">
+      <%= link_to "ユーザ情報編集", user_edit_path, class: 'link' %>
+    </li>
+    <li class="mypage__button">
+      <%= link_to "投稿アニメ一覧", animes_path, class: 'link' %>
+    </li>
+    <li class="mypage__button">
+      <%= link_to "新規アニメ投稿", new_anime_path, class: 'link' %>
+    </li>
   </ul>
   <div class="mypage">
     <div class="mypage__sidebar">

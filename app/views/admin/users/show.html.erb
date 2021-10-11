@@ -1,6 +1,5 @@
 <div class="main">
   <h2 class="main__headline"><%= @user.name %>さんの会員詳細情報</h2>
-
   <table class="profile">
     <tbody>
       <tr>
@@ -31,5 +30,7 @@
       </tr>
     </tbody>
   </table>
-  <div class="profile__edit-link"><%= link_to "ユーザ情報編集", edit_admin_user_path(@user.id), class: 'link' %></div>
+  <div class="profile__edit-link">
+    <%= link_to "ユーザ情報編集", edit_admin_user_path(@user.id), class: 'link' %>
+  </div>
 </div>

@@ -24,9 +24,9 @@
       <% end %>
 
       <% if comment.user == current_user || admin_signed_in? %>
-      <div class="comment__delete-button">
-        <%= link_to "削除する", anime_comment_path(comment.anime, comment), method: :delete, class: 'profile__confirm-yes' %>
-      </div>
+        <div class="comment__delete-button">
+          <%= link_to "削除する", anime_comment_path(comment.anime, comment), method: :delete, class: 'profile__confirm-yes' %>
+        </div>
       <% end %>
     </div>
   </div>
