@@ -6,7 +6,7 @@ RSpec.describe Genre, type: :model do
     expect(genre).to be_valid
   end
 
-  it "nameが空白" do
+  it "nameが空白の場合バリデーションチェックされエラーメッセージが返ってきているか" do
     genre = FactoryBot.build(:anime, name:"")
     expect(genre).to be_invalid
     expect(genre.errors[:name]).to include("を入力してください")

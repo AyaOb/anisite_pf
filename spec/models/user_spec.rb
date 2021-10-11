@@ -22,4 +22,21 @@ RSpec.describe User, type: :model do
     expect(user).to be_invalid
     expect(user.errors[:password]).to include("を入力してください")
   end
+
+  it "nameが重複している場合にバリデーションチェックされエラーメッセージが返ってきているか" do
+    user1 = FactoryBot.build(:user, name: 'aaa')
+    user1.save
+    user2 = FactoryBot.build(:user, name: 'aaa')
+    expect(user2).to be_invalid
+    expect(user2.errors[:name]).to include("はすでに存在します")
+  end
+
+  it "emailが重複している場合にバリデーションチェックされエラーメッセージが返ってきているか" do
+    user1 = FactoryBot.build(:user)
+    user1.save
+    user2 = FactoryBot.build(:user)
+    user2.email = user1.email
+    expect(user2).to be_invalid
+    expect(user2.errors[:email]).to include("はすでに存在します")
+  end
 end

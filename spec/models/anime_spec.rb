@@ -6,31 +6,31 @@ RSpec.describe Anime, type: :model do
     expect(anime).to be_valid
   end
 
-  it "nameが空白" do
+  it "nameが空白の場合バリデーションチェックされエラーメッセージが返ってきているか" do
     anime = FactoryBot.build(:anime, name:"")
     expect(anime).to be_invalid
     expect(anime.errors[:name]).to include("を入力してください")
   end
 
-  it "imageが空白" do
+  it "imageが空白の場合バリデーションチェックされエラーメッセージが返ってきているか" do
     anime = FactoryBot.build(:anime, image:"")
     expect(anime).to be_invalid
     expect(anime.errors[:image]).to include("を入力してください")
   end
 
-  it "quoteが空白" do
+  it "quoteが空白の場合バリデーションチェックされエラーメッセージが返ってきているか" do
     anime = FactoryBot.build(:anime, quote:"")
     expect(anime).to be_invalid
     expect(anime.errors[:quote]).to include("を入力してください")
   end
 
-  it "quote_urlが空白" do
+  it "quote_urlが空白の場合バリデーションチェックされエラーメッセージが返ってきているか" do
     anime = FactoryBot.build(:anime, quote_url:"")
     expect(anime).to be_invalid
     expect(anime.errors[:quote_url]).to include("を入力してください")
   end
 
-  it "introduction" do
+  it "introductionが空白の場合バリデーションチェックされエラーメッセージが返ってきているか" do
     anime = FactoryBot.build(:anime, introduction:"")
     expect(anime).to be_invalid
     expect(anime.errors[:introduction]).to include("を入力してください")
