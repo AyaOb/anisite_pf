@@ -333,8 +333,6 @@ body {
 }
 
 .anime {
-  display: flex;
-  flex-wrap: wrap;
 
   &__no-anime {
     margin: 20px;
@@ -417,7 +415,6 @@ body {
     color: #2D3847;
     font-size: 110%;
     margin: 2px 0 4px 10px;
-    // margin-left: 10px;
     padding-left: 10px;
   }
 

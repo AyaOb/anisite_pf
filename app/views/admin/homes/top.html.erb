@@ -17,7 +17,6 @@
             <%= link_to admin_anime_path(anime.id), class: 'anime__link-info' do %>
               <div class="anime__info-title">
                 <%= anime.name %>
-                <span class="anime__info-user"><%= anime.user.name %></span>
               </div>
               <div class="anime__info-update">
                 <%= l anime.updated_at, format: :short %>
