@@ -4,7 +4,7 @@
 <% comments.each do |comment| %>
   <div class="comment__list-item">
     <div class="comment__item-icon">
-      <%= attachment_image_tag comment.user, :icon, :fill, 60, 60, fallback: 'no_user_image', class: 'comment__icon' %>
+      <%= attachment_image_tag comment.user, :icon, :fill, 60, 60, fallback: 'no_user_image.jpg', class: 'comment__icon' %>
     </div>
     <div class="comment__item-info">
       <div class="comment__item-user">
